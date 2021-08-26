@@ -1,5 +1,6 @@
 package steps;
 
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.testng.asserts.SoftAssert;
 import pageObject.Checkout;
@@ -114,6 +115,7 @@ public class CheckoutMethods {
 
     @Step("flatRate მთლიანი ტექსტის წამოება")
     public CheckoutMethods getFlatRateFull() {
+        checkout.flatRate.waitUntil(Condition.visible, 1200);
         String FlatRateFulltext = checkout.flatRate.getText();
         flatRateFulltext = FlatRateFulltext;
         return this;

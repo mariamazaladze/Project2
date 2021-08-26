@@ -23,7 +23,6 @@ public class MainTestRunner {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
-
     ChromeAndweb openlink = new ChromeAndweb();
     MainPageMethods mainPage = new MainPageMethods();
     RegisterAccountMethods registartion = new RegisterAccountMethods();
@@ -35,6 +34,7 @@ public class MainTestRunner {
     IpodTouchMethods IpodTouch = new IpodTouchMethods();
     CartMethods cart = new CartMethods();
     CheckoutMethods checkout = new CheckoutMethods();
+
 
     @Test(groups = {"Resgression2"})
     @Epic("რეგისტრაცია")
@@ -93,7 +93,7 @@ public class MainTestRunner {
     }
 
 
-    @Test(dependsOnMethods = {"addCart", "registartion"}, groups = {"Resgression2"})
+    @Test(dependsOnMethods = {"addCart", "registartion"}, groups = {"Resgression2"}, retryAnalyzer = Retry.class)
     @Story("პროდუქტის შეძენა")
     @Description(" პროდუქტის შეძენა ")
     public void orderingItem() {
