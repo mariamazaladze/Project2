@@ -1,10 +1,29 @@
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import com.codeborne.selenide.testng.ScreenShooter;
+import io.qameta.allure.*;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import steps.*;
 import utils.ChromeAndweb;
 import variable.Parametrs;
 
+import static com.codeborne.selenide.FileDownloadMode.HTTPGET;
+
+@Listeners({ScreenShooter.class})
 public class MainTestRunner {
+    public static String reportsFolder;
+
+    public void conf() {
+        Configuration.screenshots = true;
+        Configuration.fileDownload = HTTPGET;
+        reportsFolder = "C:\\Users\\mazaladze\\Desktop\\Mariam Azaladze\\IT ACADEMY\\Project 2\\Project2\\allure-results";
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+    }
+
+
     ChromeAndweb openlink = new ChromeAndweb();
     MainPageMethods mainPage = new MainPageMethods();
     RegisterAccountMethods registartion = new RegisterAccountMethods();
@@ -17,8 +36,12 @@ public class MainTestRunner {
     CartMethods cart = new CartMethods();
     CheckoutMethods checkout = new CheckoutMethods();
 
-
     @Test(groups = {"Resgression2"})
+    @Epic("რეგისტრაცია")
+    @Flaky
+    @Description(" რეგისტრაცია  ")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link("https://github.com/mariamazaladze/Project2")
     public void registartion() {
         openlink.openChromeWithLink();
         mainPage.myAccountChlick()
@@ -34,7 +57,9 @@ public class MainTestRunner {
                 .checkagree();
     }
 
+
     @Test(groups = {"Resgression1"})
+    @Feature("sort ვალიდაცია")
     public void leptopSort() {
         openlink.openChromeWithLink();
         MenuPanell.LaptopsAndNotebooksClick()
@@ -44,7 +69,10 @@ public class MainTestRunner {
                 .priceCheck();
     }
 
+
     @Test(dependsOnMethods = {"registartion"}, groups = {"Resgression2"})
+    @Story("პროდუქტის დამატება")
+    @Description(" პროდუქტის დამატება ")
     public void addCart() throws InterruptedException {
         MenuPanell.DesktopsClick()
                 .showAllDesktops();
@@ -64,7 +92,10 @@ public class MainTestRunner {
                 .clickcheckout();
     }
 
+
     @Test(dependsOnMethods = {"addCart", "registartion"}, groups = {"Resgression2"})
+    @Story("პროდუქტის შეძენა")
+    @Description(" პროდუქტის შეძენა ")
     public void orderingItem() {
         checkout.setName()
                 .setLastname()

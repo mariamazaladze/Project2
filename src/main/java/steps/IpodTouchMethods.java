@@ -1,6 +1,7 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 import pageObject.IPodTouch;
 import variable.Parametrs;
 
@@ -11,12 +12,13 @@ public class IpodTouchMethods {
     public static String ipodPrice;
     public static String count;
 
+    @Step("ipod-ის თანხის მისაღებად, ვპარსავთ:($ სიმბოლოს და მძიმეს) ვინახავთ ახალ თანხას ცვლადში ")
     public IpodTouchMethods iPodTouchPrice() {
         String onlyPrice = iPodTouch.iponTouchPrice.getText().replace("$", "");
         ipodPrice = onlyPrice;
         return this;
     }
-
+    @Step("ipod-ის რაოდენობის დეფოლტ მნიშვნელობის წაშლა და ხელით გადაცემა რაოდენიბის")
     public IpodTouchMethods iponTouchCounter() {
         iPodTouch.iponTouchCounter.clear();
         iPodTouch.iponTouchCounter.sendKeys(parametrs.ipodtouchCounter);
@@ -24,7 +26,7 @@ public class IpodTouchMethods {
         count = iponCount;
         return this;
     }
-
+    @Step(" ipod-ის შეძება დამატება ")
     public IpodTouchMethods iPodTouchAddCard() {
         iPodTouch.iponTouchAddCard.click();
         return this;
