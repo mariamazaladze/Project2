@@ -108,10 +108,14 @@ public class MainTestRunner {
                 .setState()
                 .clickNext()
                 .clickNext2()
+                .getFlatRateFull()
+                .getFlatRatePrice()
                 .clickNext3()
                 .agree()
                 .clickNext4()
                 .subTotal()
+                .getconfirmFlatRate()
+                .checkFlatRate()
                 .checktotalprice();
     }
 

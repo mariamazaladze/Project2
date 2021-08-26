@@ -2,7 +2,8 @@ package pageObject;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import static com.codeborne.selenide.Selectors.by;
+
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Checkout {
@@ -16,12 +17,14 @@ public class Checkout {
             postcode = $("#input-payment-postcode"),
             country = $("#input-payment-country"),
             state = $("#input-payment-zone"),
-            next = $("#button-payment-address"),
-            next2 = $("#button-shipping-address"),
-            next3 = $("#button-shipping-method"),
+            billingDetails = $("#button-payment-address"),
+            deliveryDetails = $("#button-shipping-address"),
+            flatRate = $(byXpath("//*[@id='collapse-shipping-method']/div/div[1]/label")),
+            deliveryMethod = $("#button-shipping-method"),
             agree = $(by("name", "agree")),
-            next4 = $("#button-payment-method"),
-            subTotal = $(By.xpath("//*[@id='collapse-checkout-confirm']/div/div[1]/table/tfoot/tr[1]/td[2]"));
+            paymentMethod = $("#button-payment-method"),
+            subTotal = $(By.xpath("//*[@id='collapse-checkout-confirm']/div/div[1]/table/tfoot/tr[1]/td[2]")),
+            confirmFlatRate = $(By.xpath("//*[@id='collapse-checkout-confirm']/div/div[1]/table/tfoot/tr[2]/td[2]"));
 
 
 }
