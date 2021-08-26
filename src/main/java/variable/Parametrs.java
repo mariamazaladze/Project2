@@ -20,8 +20,7 @@ public class Parametrs {
     Random random = new Random();
 
     String generatedString = random.ints(leftLimit, rightLimit + 1)
-            .limit(targetStringLength)
-            .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+            .limit(targetStringLength).collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
             .toString();
 
     public String mail = generatedString + "@yahoo.com";
@@ -37,7 +36,7 @@ public class Parametrs {
     //public String name="mariam";
     //public String lastname="azaladze";
     //public String telephone="123456789";
-    //public String password=generatedString;
+
 
 
 }

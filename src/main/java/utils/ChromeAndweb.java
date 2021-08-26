@@ -1,7 +1,7 @@
 package utils;
 
 import com.codeborne.selenide.Configuration;
-import com.sun.deploy.cache.BaseLocalApplicationProperties;
+//import com.sun.deploy.cache.BaseLocalApplicationProperties;
 
 import static com.codeborne.selenide.Selenide.open;
 
