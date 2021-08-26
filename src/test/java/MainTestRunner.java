@@ -8,6 +8,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import steps.*;
 import utils.ChromeAndweb;
+import utils.Retry;
 import variable.Parametrs;
 
 import static com.codeborne.selenide.FileDownloadMode.HTTPGET;
@@ -93,7 +94,7 @@ public class MainTestRunner {
     }
 
 
-    @Test(dependsOnMethods = {"addCart", "registartion"}, groups = {"Resgression2"}, retryAnalyzer = Retry.class)
+    @Test(dependsOnMethods = {"addCart", "registartion"}, groups = {"Resgression2"}, retryAnalyzer = utils.Retry.class)
     @Story("პროდუქტის შეძენა")
     @Description(" პროდუქტის შეძენა ")
     public void orderingItem() {
