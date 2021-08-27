@@ -6,22 +6,22 @@ import pageObject.RegisterAccount;
 public class RegisterAccountMethods {
     RegisterAccount registration = new RegisterAccount();
 
-    @Step("რეგისტრაცი სახელის ჩაწერა")
+    @Step("რეგისტრაცი სახელის ჩაწერა {name}")
     public RegisterAccountMethods setName(String name) {
         registration.firstname.sendKeys(name);
         return this;
     }
-    @Step("რეგისტრაცი გვარის ჩაწერა")
+    @Step("რეგისტრაცი გვარის ჩაწერა {lastname} ")
     public RegisterAccountMethods setlastname(String lastname) {
         registration.lastname.sendKeys(lastname);
         return this;
     }
-    @Step("რეგისტრაცი მეილის ჩაწერა")
+    @Step("რეგისტრაცი მეილის ჩაწერა {email}")
     public RegisterAccountMethods setEmail(String email) {
         registration.email.sendKeys(email);
         return this;
     }
-    @Step("რეგისტრაცი ტელეფონის ჩაწერა")
+    @Step("რეგისტრაცი ტელეფონის ჩაწერა {telephone}")
     public RegisterAccountMethods setTelephone(String telephone) {
         registration.telephone.sendKeys(telephone);
         return this;

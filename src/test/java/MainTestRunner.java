@@ -15,12 +15,10 @@ import static com.codeborne.selenide.FileDownloadMode.HTTPGET;
 
 @Listeners({ScreenShooter.class})
 public class MainTestRunner {
-    public static String reportsFolder;
+
 
     public void conf() {
-        Configuration.screenshots = true;
-        Configuration.fileDownload = HTTPGET;
-        reportsFolder = "C:\\Users\\mazaladze\\Desktop\\Mariam Azaladze\\IT ACADEMY\\Project 2\\Project2\\allure-results";
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
